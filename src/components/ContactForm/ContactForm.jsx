@@ -2,16 +2,16 @@ import { Form, Label, Input, Button} from './ContactForm.styled'
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from 'react-redux';
-import { getContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/selectors';
 import { addContact } from 'redux/operations'
 
 
 export function ContactForm () {
   const [name, setName] =useState('')
-  const [phone, setPhone] = useState('')
+  const [number, setNumber] = useState('')
 
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts)
+  const contacts = useSelector(selectContacts)
   
 const handleSubmit = event => {
   event.preventDefault();
@@ -19,7 +19,7 @@ const handleSubmit = event => {
   if (isNameInContacts) {
     alert(`${name} is already in contacts`)
   } else {
-    const contact = {name, phone}
+    const contact = { name, number }
     dispatch(addContact(contact))
   }
     reset();
@@ -33,7 +33,7 @@ const handelInputChange = (e) => {
         break;
       
        case 'phone':
-        setPhone(e.currentTarget.value)
+        setNumber(e.currentTarget.value)
         break;
     
       default:
@@ -42,7 +42,7 @@ const handelInputChange = (e) => {
          
    const reset = () => {
      setName('')
-     setPhone('')
+     setNumber('')
     }
     
     return (<Form onSubmit={handleSubmit}>
@@ -56,14 +56,14 @@ const handelInputChange = (e) => {
               onChange={handelInputChange}
               required />
           </Label>      
-          <Label htmlFor=""> number
+          <Label htmlFor=""> Phone number
             <Input
              type="tel"
               name="phone"
               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
               required
-              value={phone}
+              value={number}
               onChange={handelInputChange}
                 />
           </Label>
