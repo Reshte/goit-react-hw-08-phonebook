@@ -1,9 +1,10 @@
-import { Form, Label, Input, Button} from './ContactForm.styled'
+import { Form} from './ContactForm.styled'
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from 'react-redux';
 import { selectContacts } from 'redux/selectors';
-import { addContact } from 'redux/operations'
+import { addContact } from 'redux/operations';
+import { TextField, Button } from '@mui/material';
 
 
 export function ContactForm () {
@@ -45,8 +46,14 @@ const handelInputChange = (e) => {
      setNumber('')
     }
     
-    return (<Form onSubmit={handleSubmit}>
-          <Label htmlFor="" > Name
+  return (<Form onSubmit={handleSubmit}>
+       <TextField id="outlined-basic" type="text"  pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+              title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+              value={name}
+              onChange={handelInputChange}
+              required  name="name" 
+              label="Name" variant="outlined" margin="normal" />
+          {/* <Label htmlFor="" > Name
             <Input
               type="text"
               name="name"
@@ -55,8 +62,15 @@ const handelInputChange = (e) => {
               value={name}
               onChange={handelInputChange}
               required />
-          </Label>      
-          <Label htmlFor=""> Phone number
+          </Label>       */}
+    
+    <TextField id="outlined-basic" type="tel"  pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+              title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+              value={number}
+              onChange={handelInputChange}
+              required  name="phone" 
+              label="Phone number" variant="outlined" margin="normal" />
+          {/* <Label htmlFor=""> Phone number
             <Input
              type="tel"
               name="phone"
@@ -66,8 +80,9 @@ const handelInputChange = (e) => {
               value={number}
               onChange={handelInputChange}
                 />
-          </Label>
-          <Button type="submit">Add contact</Button>       
+          </Label> */}
+    <Button variant="contained" type="submit" >Add contact</Button>
+          {/* <Button type="submit">Add contact</Button>        */}
           </Form>)
 
 }
