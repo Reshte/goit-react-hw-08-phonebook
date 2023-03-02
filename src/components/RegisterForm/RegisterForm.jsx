@@ -121,8 +121,8 @@ export const RegisterForm = (props) => {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
-                  Already have an account? Sign in
+                <Link href="/goit-react-hw-08-phonebook/login" variant="body2">
+                  Already have an account? Log in
                 </Link>
               </Grid>
             </Grid>

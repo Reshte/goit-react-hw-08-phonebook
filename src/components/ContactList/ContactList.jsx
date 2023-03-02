@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { selectContacts } from '../../redux/selectors'
 import { selectFilter } from '../../redux/selectors'
 
+
 const getVisibleContacts = (contacts, filter) => {
     if (filter.length > 0) { return contacts.filter(({ name }) => name.toLowerCase().includes(filter)) }
     return contacts;
@@ -20,4 +21,3 @@ export const ContactList = () => {
                        <ContactListItem key={id} id={id} name={name} number={number}/>))}
             </List> )
 }
-

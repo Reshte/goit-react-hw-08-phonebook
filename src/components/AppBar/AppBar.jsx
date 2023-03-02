@@ -2,26 +2,25 @@ import { Navigation } from '../Navigation/Navigation';
 import { UserMenu } from '../UserMenu/UserMenu';
 import { AuthNav } from '../AuthNav/AuthNav';
 import { useAuth } from '../../hooks/hooks';
-import { AppBar, IconButton, Toolbar, Typography } from "@mui/material"
-import HomeSharpIcon from '@mui/icons-material/HomeSharp';
-
+import { AppBar, Toolbar,  Box  } from "@mui/material"
 
 
 export const Header = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <AppBar position="static">
+     <Box sx={{ flexGrow: 1, mb:1,}}>
+      <AppBar position="static">
       <Toolbar>
-        <Typography>
-          PhoneBook
-        </Typography>
-        <IconButton>
-          <HomeSharpIcon fontSize="medium" color='inherit' />
-        </IconButton>
         <Navigation />
-      {isLoggedIn ? <UserMenu /> : <AuthNav />}
-      </Toolbar>
-          </AppBar> 
+        {isLoggedIn ?
+          <UserMenu /> : <AuthNav />}
+        </Toolbar>
+      </AppBar> 
+      </Box>
   );
 };
+
+
+
+
