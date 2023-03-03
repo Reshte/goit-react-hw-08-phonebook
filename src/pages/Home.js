@@ -16,6 +16,7 @@ export default function Home() {
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>Your favorite phonebook</h1>
+      <img src="https://unsplash.com/photos/IDbeTFgI9As" alt="" />
     </div>
   );
 }

@@ -13,11 +13,7 @@ export const FilterForm = () => {
        return (
            <Wrapper>
                <TextField id="outlined-basic" type="text" label="Find contacts name" variant="outlined" onChange={onChange} margin="normal" sx={{ ml: '20px'}} />
-
-            {/* <Label htmlFor="">Find contacts name
-                <Input type="text"  onChange={onChange} />
-            </Label> */}
-        </Wrapper>
+                   </Wrapper>
     )
 }
 
