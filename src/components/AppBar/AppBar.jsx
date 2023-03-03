@@ -9,9 +9,9 @@ export const Header = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-     <Box sx={{ flexGrow: 1, mb:1,}}>
+     <Box sx={{ flexGrow: 1, mb:1, }}>
       <AppBar position="static">
-      <Toolbar>
+      <Toolbar sx={{display: 'flex', justifyContent: 'space-between'}}>
         <Navigation />
         {isLoggedIn ?
           <UserMenu /> : <AuthNav />}

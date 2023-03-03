@@ -1,8 +1,10 @@
 import { ContactListItem } from './ContactListItem/ContactListItem'
-import { List } from './ContactList.styled'
+// import { List } from './ContactList.styled'
 import { useSelector } from "react-redux";
 import { selectContacts } from '../../redux/selectors'
 import { selectFilter } from '../../redux/selectors'
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 
 
 const getVisibleContacts = (contacts, filter) => {
@@ -16,8 +18,10 @@ export const ContactList = () => {
     const visibleContacts = getVisibleContacts(contacts, filter)
   
             return ( 
-            <List>
+    <Box sx={{ flexGrow: 1 }}>
+         <Grid container spacing={2}>
                    {visibleContacts.map(({ id, name, number }) => (
                        <ContactListItem key={id} id={id} name={name} number={number}/>))}
-            </List> )
+            </Grid>
+    </Box> )
 }

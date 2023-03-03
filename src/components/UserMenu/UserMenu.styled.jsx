@@ -1,5 +1,8 @@
 import styled from '@emotion/styled'
 
 export const Wrapper = styled.div` 
-    display: flex,
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
 `
